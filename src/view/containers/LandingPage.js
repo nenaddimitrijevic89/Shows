@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { showService } from '../../services/showService';
 import * as actions from '../../store/action';
+import NavBar from '../components/NavBar';
 
 class LandingPage extends Component{
 
@@ -13,7 +13,7 @@ class LandingPage extends Component{
     render(){
         return(
             <div>
-                Nenad
+                <NavBar />
             </div>
         )
     }
