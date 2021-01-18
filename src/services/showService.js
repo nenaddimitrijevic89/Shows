@@ -1,4 +1,3 @@
-import { Show } from '../entities/show';
 import { baseURL } from '../shared/baseURL';
 
 class ShowService{
