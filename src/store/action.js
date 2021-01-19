@@ -17,5 +17,5 @@ export const fetchInitShows = () => {
                 const shows = response.data.map(show => new Show(show))
                 dispatch(setShows(shows));
             })
-    }
+    };
 };
