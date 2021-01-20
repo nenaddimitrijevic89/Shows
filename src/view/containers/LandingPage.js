@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import * as actions from '../../store/action';
 import NavBar from '../components/NavBar';
+import Shows from '../components/Shows/Shows';
 
 class LandingPage extends Component{
 
@@ -12,8 +13,9 @@ class LandingPage extends Component{
 
     render(){
         return(
-            <div>
+            <div className='container'>
                 <NavBar />
+                <Shows data={this.props.shows}/>
             </div>
         )
     }
