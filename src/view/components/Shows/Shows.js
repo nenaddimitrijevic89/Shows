@@ -2,7 +2,6 @@ import React from 'react';
 
 const Shows = ({ data }) => {
     let shows = null;
-    console.log(data)
     if(data){
         shows = data.map(show => (
             <div className='col-4'>
