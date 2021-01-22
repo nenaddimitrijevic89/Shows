@@ -1,12 +1,11 @@
 import React from 'react';
+import Show from './Show/Show';
 
 const Shows = ({ data }) => {
     let shows = null;
     if(data){
         shows = data.map(show => (
-            <div className='col-4'>
-                <img src={show.mediumImage} />
-            </div>
+            <Show image={show.mediumImage}/>
         ))
     }
     return (
