@@ -1,5 +1,6 @@
 import React from 'react';
 import Show from './Show/Show';
+import './Shows.css';
 
 const Shows = ({ data }) => {
     let shows = null;
@@ -9,7 +10,7 @@ const Shows = ({ data }) => {
         ))
     }
     return (
-        <div className='row'>
+        <div className='row shows'>
             {shows}
         </div>
     )
