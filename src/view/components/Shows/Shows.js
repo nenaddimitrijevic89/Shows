@@ -5,7 +5,7 @@ import './Shows.css';
 const Shows = ({ data }) => {
     let shows = null;
     if(data){
-        shows = data.map(show => (
+        shows = data.slice(0, 50).sort((a, b) => b.rating - a.rating).map(show => (
             <Show image={show.mediumImage}/>
         ))
     }
