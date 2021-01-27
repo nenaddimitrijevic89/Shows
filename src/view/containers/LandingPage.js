@@ -11,6 +11,10 @@ class LandingPage extends Component{
         this.props.onFetchInitShows()
     }
 
+    search = () => {
+        
+    }
+
     render(){
         return(
             <div className='container'>
