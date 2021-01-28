@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import * as actions from '../../store/action';
-import NavBar from '../components/NavBar/NavBar';
-import Shows from '../components/Shows/Shows';
+import * as actions from '../../../store/action';
+import NavBar from '../../components/NavBar/NavBar';
+import Shows from '../../components/Shows/Shows';
 
 class LandingPage extends Component{
 

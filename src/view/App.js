@@ -1,12 +1,15 @@
-import './App.css';
+import { Switch, Route } from 'react-router-dom';
 
-import LandingPage from './containers/LandingPage';
+import './App.css';
+import LandingPage from './containers/LandingPage/LandingPage';
+import SingleShow from './containers/SingleShow/SingleShow';
 
 function App() {
   return (
-    <div>
-      <LandingPage />
-    </div>
+    <Switch>
+      <Route exact path='/' component={LandingPage} />
+      <Route path='/singleshow/:id' component={SingleShow} />
+    </Switch>
   );
 }
 
