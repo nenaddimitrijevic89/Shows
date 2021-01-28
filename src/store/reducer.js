@@ -11,6 +11,11 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 shows: action.shows
             }
+        case actionTypes.SET_SINGLE_SHOW:
+            return {
+                ...state,
+                singleShow: action.show
+            }
         default: return state;
     }
 };
