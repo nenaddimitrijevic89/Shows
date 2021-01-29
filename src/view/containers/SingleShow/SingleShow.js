@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
 import * as actions from '../../../store/action';
-import { showService } from '../../../services/showService';
+import Show from '../../components/Shows/Show/Show';
 
 class SingleShow extends Component{
     componentDidMount(){
@@ -10,7 +10,7 @@ class SingleShow extends Component{
     }
     render(){
         return(
-            <></>
+            <><Show image={this.props.singleShow.largeImage}/></>
         )
     }
 };
