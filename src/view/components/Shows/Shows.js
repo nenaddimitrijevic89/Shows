@@ -8,8 +8,8 @@ const Shows = ({ data }) => {
   let shows = null;
   if (data) {
     shows = data
-      .slice(0, 50)
-      .sort((a, b) => b.rating - a.rating)
+      // .slice(0, 50)
+      // .sort((a, b) => b.rating - a.rating)
       .map((show) => (
         <Link to={`singleshow/${show.id}`}>
           <Show image={show.mediumImage} />

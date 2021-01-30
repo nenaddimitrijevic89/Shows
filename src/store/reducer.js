@@ -2,7 +2,9 @@ import * as actionTypes from './actionTypes';
 
 const initialState = {
     shows: null,
-    singleShow: null
+    singleShow: null,
+    currentPage: 1,
+    showsPerPage: 20
 };
 
 const reducer = (state = initialState, action) => {
@@ -16,6 +18,11 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 singleShow: action.show
+            }
+        case actionTypes.CHANGE_PAGE:
+            return {
+                ...state,
+                currentPage: action.page
             }
         default: return state;
     }

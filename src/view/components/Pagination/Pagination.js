@@ -1,8 +1,8 @@
 import React from 'react';
 import './Pagination.css';
 
-const Pagination = ({ showsPerPage, totalShows, paginate, currentPage, setCurrentPage, setShowsPerPage }) => {
-
+const Pagination = ({ showsPerPage, totalShows, paginate, currentPage, setShowsPerPage }) => {
+  console.log(currentPage)
   const pages = Math.ceil(totalShows / showsPerPage);
   let buttons = currentPage === 1 ? currentPage - 1 : currentPage - 2;
   let previous = currentPage === 1 ? 1 : currentPage - 1;
@@ -19,29 +19,29 @@ const Pagination = ({ showsPerPage, totalShows, paginate, currentPage, setCurren
 
           <button className='button' onClick={() => {
             setShowsPerPage(20)
-            if(totalShows<=20)return setCurrentPage(1)
+            if(totalShows<=20)return paginate(1)
             if(showsPerPage === 20)return
-            if(showsPerPage===50 && currentPage===Math.ceil(totalShows/50))return setCurrentPage(Math.ceil(totalShows/20))
-            if(showsPerPage === 100 && currentPage===Math.ceil(totalShows/100))return setCurrentPage(Math.ceil(totalShows/20))
-            setCurrentPage(Math.ceil(showsPerPage*currentPage/20))
+            if(showsPerPage===50 && currentPage===Math.ceil(totalShows/50))return paginate(Math.ceil(totalShows/20))
+            if(showsPerPage === 100 && currentPage===Math.ceil(totalShows/100))return paginate(Math.ceil(totalShows/20))
+            paginate(Math.ceil(showsPerPage*currentPage/20))
             }}>20</button>
 
           <button className='button' onClick={() => {
             setShowsPerPage(50)
-            if(totalShows<=50)return setCurrentPage(1)
+            if(totalShows<=50)return paginate(1)
             if(showsPerPage === 50)return
-            if(showsPerPage===100 && currentPage===Math.ceil(totalShows/100))return setCurrentPage(Math.ceil(totalShows/50))
-            setCurrentPage(Math.ceil(showsPerPage*currentPage/50))
+            if(showsPerPage===100 && currentPage===Math.ceil(totalShows/100))return paginate(Math.ceil(totalShows/50))
+            paginate(Math.ceil(showsPerPage*currentPage/50))
             }}>50</button>
 
           <button className='button' onClick={() => {
             setShowsPerPage(100)
             if(showsPerPage === 100)return
-            setCurrentPage(Math.ceil(showsPerPage*currentPage/100))
+            paginate(Math.ceil(showsPerPage*currentPage/100))
             }}>100</button>
         </div>
 
-        <button className='button' onClick={() => setCurrentPage(previous)}><i className="fa fa-arrow-left"></i></button>
+        <button className='button' onClick={() => paginate(previous)}><i className="fa fa-arrow-left"></i></button>
         
         {pageNumbers.map(number => (
           <button key={number} onClick={() => paginate(number)} className='button'>
@@ -49,7 +49,7 @@ const Pagination = ({ showsPerPage, totalShows, paginate, currentPage, setCurren
           </button>
         )).slice(buttons, currentPage+5)}
         
-        <button className='button' onClick={() => setCurrentPage(next)}><i className="fa fa-arrow-right"></i></button>
+        <button className='button' onClick={() => paginate(next)}><i className="fa fa-arrow-right"></i></button>
       </div>
   );
 };
