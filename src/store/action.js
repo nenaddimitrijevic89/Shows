@@ -2,17 +2,24 @@ import { showService } from "../services/showService";
 import * as actionTypes from "./actionTypes";
 import { Show } from "../entities/show";
 
-export const setShows = (shows) => {
+export const setInitShows = (shows) => {
   return {
     type: actionTypes.SET_INIT_SHOWS,
-    shows: shows,
+    shows: shows
+  };
+};
+
+export const changePage = (page) => {
+  return {
+    type: actionTypes.CHANGE_PAGE,
+    currentPage: page
   };
 };
 
 export const setSingleShow = (show) => {
   return {
     type: actionTypes.SET_SINGLE_SHOW,
-    show: show,
+    show: show
   };
 };
 
@@ -20,7 +27,7 @@ export const fetchInitShows = () => {
   return (dispatch) => {
     showService.getInitShows().then((response) => {
       const shows = response.data.map((show) => new Show(show));
-      dispatch(setShows(shows));
+      dispatch(setInitShows(shows));
     });
   };
 };
