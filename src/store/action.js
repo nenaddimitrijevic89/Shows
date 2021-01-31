@@ -9,13 +9,6 @@ export const setInitShows = (shows) => {
   };
 };
 
-export const changePage = (page) => {
-  return {
-    type: actionTypes.CHANGE_PAGE,
-    currentPage: page
-  };
-};
-
 export const setSingleShow = (show) => {
   return {
     type: actionTypes.SET_SINGLE_SHOW,
