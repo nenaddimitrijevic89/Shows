@@ -5,14 +5,14 @@ import { Show } from "../entities/show";
 export const setInitShows = (shows) => {
   return {
     type: actionTypes.SET_INIT_SHOWS,
-    shows: shows
+    shows: shows,
   };
 };
 
 export const setSingleShow = (show) => {
   return {
     type: actionTypes.SET_SINGLE_SHOW,
-    show: show
+    show: show,
   };
 };
 
@@ -31,5 +31,13 @@ export const fetchSingleShow = (id) => {
       const show = new Show(response.data);
       dispatch(setSingleShow(show));
     });
+  };
+};
+
+export const changePage = (number, payload) => {
+  return {
+    type: actionTypes.CHANGE_PAGE,
+    currentPage: number,
+    filteredShows: payload,
   };
 };
