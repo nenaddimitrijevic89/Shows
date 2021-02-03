@@ -1,8 +1,8 @@
+import { Button } from 'react-bootstrap';
 import React from 'react';
 import './Pagination.css';
 
 const Pagination = ({ showsPerPage, totalShows, paginate, currentPage, setShowsPerPage }) => {
-  console.log(currentPage)
   const pages = Math.ceil(totalShows / showsPerPage);
   let buttons = currentPage === 1 ? currentPage - 1 : currentPage - 2;
   let previous = currentPage === 1 ? 1 : currentPage - 1;

@@ -33,11 +33,3 @@ export const fetchSingleShow = (id) => {
     });
   };
 };
-
-export const changePage = (number, payload) => {
-  return {
-    type: actionTypes.CHANGE_PAGE,
-    currentPage: number,
-    filteredShows: payload,
-  };
-};
