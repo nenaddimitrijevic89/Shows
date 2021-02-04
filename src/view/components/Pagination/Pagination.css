@@ -5,16 +5,23 @@
     margin-bottom: 30px;
 }
 .button{
-    background-color: #36304a;
     border: none;
-    color: white;
     padding: 10px 22px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    margin-left: 5px;
 }
-.btn{
+.buttons{
     display: block;
     margin-bottom: 30px;
 }
+.active__page{
+   color: #ffc107 !important;
+   font-size: 25px !important;
+}
+.active__shows{
+    color: #343a40 !important;
+    font-size: 25px !important;
+ }

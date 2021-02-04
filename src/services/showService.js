@@ -8,6 +8,10 @@ class ShowService {
   getSingleShow(id) {
     return baseURL.get(`shows/${id}`);
   }
+
+  getSearchedShows(query) {
+    return baseURL.get(`shows?q=${query}`);
+  }
 }
 
 export const showService = new ShowService();

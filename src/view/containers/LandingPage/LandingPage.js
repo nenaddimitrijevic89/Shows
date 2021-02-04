@@ -10,7 +10,7 @@ class LandingPage extends Component {
   state = {
     showsPerPage: 20,
     currentPage: 1,
-    currentShows: null
+    currentShows: null,
   };
   componentDidMount() {
     this.props.onFetchInitShows();
@@ -25,9 +25,11 @@ class LandingPage extends Component {
   current = () => {
     const indexOfLastShow = this.state.currentPage * this.state.showsPerPage;
     const indexOfFirstShow = indexOfLastShow - this.state.showsPerPage;
-    const currentShows = this.props.shows.sort((a, b) => b.rating - a.rating).slice(indexOfFirstShow, indexOfLastShow);
+    const currentShows = this.props.shows
+      .sort((a, b) => b.rating - a.rating)
+      .slice(indexOfFirstShow, indexOfLastShow);
     this.setState({ currentShows: currentShows });
-  }
+  };
 
   setShowsPerPage = (number) => {
     this.setState({ showsPerPage: number });
@@ -52,9 +54,8 @@ class LandingPage extends Component {
       <div className="container">
         <NavBar />
         {shows}
-        {pagination}  
+        {pagination}
       </div>
-      
     );
   }
 }
