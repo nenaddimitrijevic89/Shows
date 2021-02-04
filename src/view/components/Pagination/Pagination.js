@@ -1,4 +1,3 @@
-import { Button } from 'react-bootstrap';
 import React from 'react';
 import './Pagination.css';
 
@@ -15,9 +14,9 @@ const Pagination = ({ showsPerPage, totalShows, paginate, currentPage, setShowsP
 
   return (
       <div className='pagination'>
-        <div className='btn'>
+        <div className='buttons'>
 
-          <button className='button' onClick={() => {
+          <button className={`button btn btn-warning ${showsPerPage===20 ? 'active__shows' : ''}`} onClick={() => {
             setShowsPerPage(20)
             if(totalShows<=20)return paginate(1)
             if(showsPerPage === 20)return
@@ -26,7 +25,7 @@ const Pagination = ({ showsPerPage, totalShows, paginate, currentPage, setShowsP
             paginate(Math.ceil(showsPerPage*currentPage/20))
             }}>20</button>
 
-          <button className='button' onClick={() => {
+          <button className={`button btn btn-warning ${showsPerPage===50 ? 'active__shows' : ''}`} onClick={() => {
             setShowsPerPage(50)
             if(totalShows<=50)return paginate(1)
             if(showsPerPage === 50)return
@@ -34,22 +33,23 @@ const Pagination = ({ showsPerPage, totalShows, paginate, currentPage, setShowsP
             paginate(Math.ceil(showsPerPage*currentPage/50))
             }}>50</button>
 
-          <button className='button' onClick={() => {
+          <button className={`button btn btn-warning ${showsPerPage===100 ? 'active__shows' : ''}`} onClick={() => {
             setShowsPerPage(100)
             if(showsPerPage === 100)return
             paginate(Math.ceil(showsPerPage*currentPage/100))
             }}>100</button>
         </div>
 
-        <button className='button' onClick={() => paginate(previous)}><i className="fa fa-arrow-left"></i></button>
+        <button className='button btn btn-dark' onClick={() => paginate(previous)}><i className="fa fa-arrow-left"></i></button>
         
         {pageNumbers.map(number => (
-          <button key={number} onClick={() => paginate(number)} className='button'>
+          <button key={number} onClick={() => paginate(number)} 
+            className={`button btn btn-dark ${(currentPage === number) ? 'active__page' : ''}`}>
             {number}
           </button>
         )).slice(buttons, currentPage+5)}
         
-        <button className='button' onClick={() => paginate(next)}><i className="fa fa-arrow-right"></i></button>
+        <button className='button btn btn-dark' onClick={() => paginate(next)}><i className="fa fa-arrow-right"></i></button>
       </div>
   );
 };
