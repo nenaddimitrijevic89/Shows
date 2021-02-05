@@ -1,6 +1,6 @@
 import { Navbar, Nav, Form, FormControl } from 'react-bootstrap';
 
-const NavBar = () => {
+const NavBar = ({ searching }) => {
     return (
         <>
             <Navbar bg="light" expand="lg">
@@ -12,7 +12,7 @@ const NavBar = () => {
                     <Nav.Link href="#link">Link</Nav.Link>                   
                     </Nav>
                     <Form inline>
-                    <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                    <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={(e) => searching(e.target.value)} />
                     
                     </Form>
                 </Navbar.Collapse>

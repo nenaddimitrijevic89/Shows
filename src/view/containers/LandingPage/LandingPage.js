@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { showService } from "../../../services/showService";
 
 import * as actions from "../../../store/action";
 import NavBar from "../../components/NavBar/NavBar";
@@ -35,6 +36,11 @@ class LandingPage extends Component {
     this.setState({ showsPerPage: number });
   };
 
+  searching = (query) => {
+    showService.getSearchedShows(query)
+    .then(response => console.log(response.data))
+  }
+
   render() {
     let shows = null;
     let pagination = null;
@@ -52,7 +58,7 @@ class LandingPage extends Component {
     }
     return (
       <div className="container">
-        <NavBar />
+        <NavBar searching={this.searching}/>
         {shows}
         {pagination}
       </div>
