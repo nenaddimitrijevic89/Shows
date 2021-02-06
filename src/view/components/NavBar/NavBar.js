@@ -1,6 +1,7 @@
 import { Navbar, Nav, Form, FormControl } from 'react-bootstrap';
+import ShowList from './ShowList/ShowList';
 
-const NavBar = ({ searching }) => {
+const NavBar = ({ search, searchedShows }) => {
     return (
         <>
             <Navbar bg="light" expand="lg">
@@ -12,8 +13,8 @@ const NavBar = ({ searching }) => {
                     <Nav.Link href="#link">Link</Nav.Link>                   
                     </Nav>
                     <Form inline>
-                    <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={(e) => searching(e.target.value)} />
-                    
+                    <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={(e) => search(e.target.value)} />
+                    <ShowList searchedShows={searchedShows}/>
                     </Form>
                 </Navbar.Collapse>
             </Navbar>
