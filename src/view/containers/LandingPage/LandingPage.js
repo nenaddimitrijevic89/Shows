@@ -12,6 +12,10 @@ class LandingPage extends Component {
     showsPerPage: 20,
     currentPage: 1,
     currentShows: null,
+    searchedShows: {
+      name: null,
+      id: null
+    }
   };
   componentDidMount() {
     this.props.onFetchInitShows();
@@ -36,9 +40,19 @@ class LandingPage extends Component {
     this.setState({ showsPerPage: number });
   };
 
-  searching = (query) => {
+  search = (query) => {
+    console.log(query)
     showService.getSearchedShows(query)
-    .then(response => console.log(response.data))
+    .then(response => {
+      console.log(response)
+      let shows = response.data.map(show => {
+        return {
+          name: show.show.name,
+          id: show.show.id
+        }
+      })
+      this.setState({ searchedShows: shows })
+    })
   }
 
   render() {
@@ -58,7 +72,7 @@ class LandingPage extends Component {
     }
     return (
       <div className="container">
-        <NavBar searching={this.searching}/>
+        <NavBar search={this.search} searchedShows={this.state.searchedShows}/>
         {shows}
         {pagination}
       </div>

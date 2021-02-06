@@ -10,7 +10,7 @@ class ShowService {
   }
 
   getSearchedShows(query) {
-    return baseURL.get(`shows?q=${query}`);
+    return baseURL.get(`search/shows?q=${query}`);
   }
 }
 
