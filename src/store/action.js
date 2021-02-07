@@ -16,6 +16,13 @@ export const setSingleShow = (show) => {
   };
 };
 
+export const setSearchedShows = (shows) => {
+  return {
+    type: actionTypes.SET_SEARCHED_SHOWS,
+    shows: shows,
+  };
+};
+
 export const fetchInitShows = () => {
   return (dispatch) => {
     showService.getInitShows().then((response) => {
@@ -30,6 +37,20 @@ export const fetchSingleShow = (id) => {
     showService.getSingleShow(id).then((response) => {
       const show = new Show(response.data);
       dispatch(setSingleShow(show));
+    });
+  };
+};
+
+export const fetchSearchedShows = (query) => {
+  return (dispatch) => {
+    showService.getSearchedShows(query).then((response) => {
+      const shows = response.data.map((show) => (
+        {
+          name: show.show.name,
+          id: show.show.id,
+        }
+      ));
+      dispatch(setSearchedShows(shows));
     });
   };
 };

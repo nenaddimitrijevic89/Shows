@@ -3,6 +3,7 @@ import * as actionTypes from "./actionTypes";
 const initialState = {
   shows: null,
   singleShow: null,
+  searchedShows: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -16,6 +17,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         singleShow: action.show,
+        searchedShows: null,
+      };
+    case actionTypes.SET_SEARCHED_SHOWS:
+      return {
+        ...state,
+        searchedShows: action.shows,
       };
     default:
       return state;

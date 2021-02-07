@@ -1,13 +1,15 @@
-import { Link } from 'react-router-dom';
-import './ShowList.css';
+import { Link } from "react-router-dom";
+import "./ShowList.css";
 
 const ShowList = ({ searchedShows }) => {
-    let list = searchedShows[0] && searchedShows.map(show => <Link to={`/singleshow/${show.id}`}><li>{show.name}</li></Link>)
-    return (
-        <ul className='list'>
-            {list}
-        </ul>
-    )
-}
+  let list =
+    searchedShows &&
+    searchedShows.map((show, i) => (
+      <Link to={`/singleshow/${show.id}`} key={i}>
+        <li>{show.name}</li>
+      </Link>
+    ));
+  return <ul className="list">{list}</ul>;
+};
 
 export default ShowList;

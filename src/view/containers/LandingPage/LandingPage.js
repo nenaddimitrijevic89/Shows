@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { showService } from "../../../services/showService";
 
+import "./LandingPage.css";
 import * as actions from "../../../store/action";
+import Loader from "../../components/Loader/Loader";
 import NavBar from "../../components/NavBar/NavBar";
 import Pagination from "../../components/Pagination/Pagination";
 import Shows from "../../components/Shows/Shows";
@@ -12,10 +14,7 @@ class LandingPage extends Component {
     showsPerPage: 20,
     currentPage: 1,
     currentShows: null,
-    searchedShows: {
-      name: null,
-      id: null
-    }
+    isLoading: true,
   };
   componentDidMount() {
     this.props.onFetchInitShows();
@@ -33,7 +32,7 @@ class LandingPage extends Component {
     const currentShows = this.props.shows
       .sort((a, b) => b.rating - a.rating)
       .slice(indexOfFirstShow, indexOfLastShow);
-    this.setState({ currentShows: currentShows });
+    this.setState({ currentShows: currentShows, isLoading: false });
   };
 
   setShowsPerPage = (number) => {
@@ -41,40 +40,42 @@ class LandingPage extends Component {
   };
 
   search = (query) => {
-    console.log(query)
-    showService.getSearchedShows(query)
-    .then(response => {
-      console.log(response)
-      let shows = response.data.map(show => {
+    console.log(query);
+    showService.getSearchedShows(query).then((response) => {
+      console.log(response);
+      let shows = response.data.map((show) => {
         return {
           name: show.show.name,
-          id: show.show.id
-        }
-      })
-      this.setState({ searchedShows: shows })
-    })
-  }
+          id: show.show.id,
+        };
+      });
+      this.setState({ searchedShows: shows });
+    });
+  };
 
   render() {
-    let shows = null;
-    let pagination = null;
-    if (this.props.shows) {
-      shows = <Shows data={this.state.currentShows} />;
-      pagination = (
-        <Pagination
-          showsPerPage={this.state.showsPerPage}
-          totalShows={this.props.shows.length}
-          paginate={this.paginate}
-          currentPage={this.state.currentPage}
-          setShowsPerPage={this.setShowsPerPage}
-        />
+    let shows = <Loader />;
+    if (!this.state.isLoading) {
+      shows = (
+        <>
+          <Shows data={this.state.currentShows} />
+          <Pagination
+            showsPerPage={this.state.showsPerPage}
+            totalShows={this.props.shows.length}
+            paginate={this.paginate}
+            currentPage={this.state.currentPage}
+            setShowsPerPage={this.setShowsPerPage}
+          />
+        </>
       );
     }
     return (
-      <div className="container">
-        <NavBar search={this.search} searchedShows={this.state.searchedShows}/>
-        {shows}
-        {pagination}
+      <div className="container-fluid wrapper">
+        <NavBar
+          search={this.props.onFetchSearchedShows}
+          searchedShows={this.props.searchedShows}
+        />
+        <div className="container">{shows}</div>
       </div>
     );
   }
@@ -83,12 +84,14 @@ class LandingPage extends Component {
 const mapStateToProps = (state) => {
   return {
     shows: state.shows,
+    searchedShows: state.searchedShows,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onFetchInitShows: () => dispatch(actions.fetchInitShows()),
+    onFetchSearchedShows: (query) => dispatch(actions.fetchSearchedShows(query)),
   };
 };
 
