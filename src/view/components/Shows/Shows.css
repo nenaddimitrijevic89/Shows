@@ -2,3 +2,9 @@
     text-align: center;
     justify-content: space-between;
 }
+@media screen and (max-width: 509px){
+    .shows>a{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

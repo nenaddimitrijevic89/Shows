@@ -14,3 +14,8 @@
 a:last-child>li{
     padding-bottom: 10px;
 }
+@media screen and (max-width: 991px){
+    .list{
+        top: 120px;
+    }
+}
