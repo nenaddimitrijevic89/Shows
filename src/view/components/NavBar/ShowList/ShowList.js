@@ -4,8 +4,8 @@ import "./ShowList.css";
 const ShowList = ({ searchedShows }) => {
   let list =
     searchedShows &&
-    searchedShows.map((show, i) => (
-      <Link to={`/singleshow/${show.id}`} key={i}>
+    searchedShows.map((show) => (
+      <Link to={`/singleshow/${show.id}`} key={show.id}>
         <li>{show.name}</li>
       </Link>
     ));

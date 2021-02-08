@@ -25,3 +25,20 @@
     color: #343a40 !important;
     font-size: 25px !important;
  }
+ @media screen and (max-width: 767px){
+    .button{
+        margin-bottom: 8px;
+        font-size: 14px;
+    }
+    .active__page, .active__shows{
+        font-size: 21px !important;
+    }
+ }
+ @media screen and (max-width: 527px){
+    .button{
+        font-size: 13px;
+    }
+    .active__page, .active__shows{
+        font-size: 20px !important;
+    }
+}
