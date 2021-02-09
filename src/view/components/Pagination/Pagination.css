@@ -26,6 +26,9 @@
     font-size: 25px !important;
  }
  @media screen and (max-width: 767px){
+     .buttons{
+        margin-bottom: 15px;
+     }
     .button{
         margin-bottom: 8px;
         font-size: 14px;

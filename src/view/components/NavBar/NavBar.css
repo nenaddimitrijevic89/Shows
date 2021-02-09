@@ -1,3 +1,6 @@
 .search{
     flex-direction: row-reverse;
 }
+.navbar-toggler{
+    background-color: #ffc107;
+}
