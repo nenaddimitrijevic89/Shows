@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { showService } from "../../../services/showService";
 
 import "./LandingPage.css";
 import * as actions from "../../../store/action";
@@ -37,20 +36,6 @@ class LandingPage extends Component {
 
   setShowsPerPage = (number) => {
     this.setState({ showsPerPage: number });
-  };
-
-  search = (query) => {
-    console.log(query);
-    showService.getSearchedShows(query).then((response) => {
-      console.log(response);
-      let shows = response.data.map((show) => {
-        return {
-          name: show.show.name,
-          id: show.show.id,
-        };
-      });
-      this.setState({ searchedShows: shows });
-    });
   };
 
   render() {
@@ -91,7 +76,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onFetchInitShows: () => dispatch(actions.fetchInitShows()),
-    onFetchSearchedShows: (query) => dispatch(actions.fetchSearchedShows(query)),
+    onFetchSearchedShows: (query) =>
+      dispatch(actions.fetchSearchedShows(query)),
   };
 };
 
