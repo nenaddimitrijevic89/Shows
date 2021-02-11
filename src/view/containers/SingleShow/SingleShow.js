@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import * as actions from "../../../store/action";
+import Loader from "../../components/Loader/Loader";
 import Show from "../../components/Shows/Show/Show";
 
 class SingleShow extends Component {
@@ -9,12 +10,12 @@ class SingleShow extends Component {
     this.props.onFetchSingleShow(this.props.match.params.id);
   }
   render() {
-    let show = null;
+    let show = <Loader />;
     if (this.props.singleShow) {
       show = <Show image={this.props.singleShow.largeImage} />;
     }
 
-    return <>{show}</>;
+    return <div className='container-fluid'>{show}</div>;
   }
 }
 
