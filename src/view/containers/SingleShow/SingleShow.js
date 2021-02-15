@@ -14,7 +14,7 @@ class SingleShow extends Component {
     if (this.props.singleShow) {
       show = <Show image={this.props.singleShow.largeImage} />;
     }
-    return <div className='container-fluid'>{show}</div>;
+    return <div className='container'>{show}</div>;
   }
 }
 
