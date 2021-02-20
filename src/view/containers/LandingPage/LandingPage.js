@@ -17,7 +17,7 @@ class LandingPage extends Component {
   };
   componentDidMount() {
     this.props.onFetchInitShows();
-    setTimeout(() => this.current(), 1000);
+    setTimeout(() => this.current(), 4000);
   }
 
   paginate = (number) => {
@@ -28,6 +28,7 @@ class LandingPage extends Component {
   current = () => {
     const indexOfLastShow = this.state.currentPage * this.state.showsPerPage;
     const indexOfFirstShow = indexOfLastShow - this.state.showsPerPage;
+    console.log(this.props.shows)
     const currentShows = this.props.shows
       .sort((a, b) => b.rating - a.rating)
       .slice(indexOfFirstShow, indexOfLastShow);
@@ -76,8 +77,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onFetchInitShows: () => dispatch(actions.fetchInitShows()),
-    onFetchSearchedShows: (query) =>
-      dispatch(actions.fetchSearchedShows(query)),
+    onFetchSearchedShows: (query) => dispatch(actions.fetchSearchedShows(query)),
   };
 };
 

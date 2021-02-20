@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import * as actions from "../../../store/action";
 import Loader from "../../components/Loader/Loader";
 import Show from "../../components/Shows/Show/Show";
+import SingleShowSummary from "../../components/Shows/SingleShowSummary/SingleShowSummary";
 
 class SingleShow extends Component {
   componentDidMount() {
@@ -11,8 +12,10 @@ class SingleShow extends Component {
   }
   render() {
     let show = <Loader />;
+    let summary = null;
     if (this.props.singleShow) {
-      show = <Show image={this.props.singleShow.largeImage} />;
+      show = <><Show image={this.props.singleShow.largeImage} /><SingleShowSummary summary={this.props.singleShow.summary} /></>;
+      summary = <SingleShowSummary summary={this.props.singleShow.summary} />
     }
     return <div className='container'>{show}</div>;
   }
