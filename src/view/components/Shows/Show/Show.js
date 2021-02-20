@@ -5,7 +5,7 @@ import './Show.css';
 const Show = ({ image }) => {
     // const pageNumbers = Array.from(new Array(pages)).map((_, index)=>index+1);
     return(
-        <div className='col-2 col-sm-12 show'>
+        <div className='col-lg-6 col-sm-12 show'>
             <img src={image} alt='poster'/>
         </div>
     )
