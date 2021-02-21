@@ -4,18 +4,14 @@ import { connect } from "react-redux";
 import * as actions from "../../../store/action";
 import Loader from "../../components/Loader/Loader";
 import Show from "../../components/Shows/Show/Show";
-import SingleShowSummary from "../../components/Shows/SingleShowSummary/SingleShowSummary";
-
 class SingleShow extends Component {
   componentDidMount() {
     this.props.onFetchSingleShow(this.props.match.params.id);
   }
   render() {
     let show = <Loader />;
-    let summary = null;
     if (this.props.singleShow) {
-      show = <><Show image={this.props.singleShow.largeImage} /><SingleShowSummary summary={this.props.singleShow.summary} /></>;
-      summary = <SingleShowSummary summary={this.props.singleShow.summary} />
+      show = <Show image={this.props.singleShow.largeImage} />;
     }
     return <div className='container'>{show}</div>;
   }
