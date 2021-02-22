@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import * as actions from "../../../store/action";
 import Loader from "../../components/Loader/Loader";
+import NavBar from "../../components/NavBar/NavBar";
 import Show from "../../components/Shows/Show/Show";
 class SingleShow extends Component {
   componentDidMount() {
@@ -13,19 +14,28 @@ class SingleShow extends Component {
     if (this.props.singleShow) {
       show = <Show image={this.props.singleShow.largeImage} />;
     }
-    return <div className='container'>{show}</div>;
+    return (
+      <div className="container-fluid wrapper">
+        <NavBar 
+           search={this.props.onFetchSearchedShows}
+           searchedShows={this.props.searchedShows}/>
+        <div className='container'>{show}</div>;
+      </div>
+    )
   }
 }
 
 const mapStateToProps = (state) => {
   return {
     singleShow: state.singleShow,
+    searchedShows: state.searchedShows
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onFetchSingleShow: (id) => dispatch(actions.fetchSingleShow(id)),
+    onFetchSearchedShows: (query) => dispatch(actions.fetchSearchedShows(query)),
   };
 };
 
