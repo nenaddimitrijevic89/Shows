@@ -17,7 +17,7 @@ class LandingPage extends Component {
   };
   componentDidMount() {
     this.props.onFetchInitShows();
-    setTimeout(() => this.current(), 4000);
+    setTimeout(() => this.current(), 1000);
   }
 
   paginate = (number) => {
