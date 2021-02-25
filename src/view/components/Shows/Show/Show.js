@@ -12,7 +12,3 @@ const Show = ({ image }) => {
 };
 
 export default Show;
-
-{/* <div className='col-lg-6 col-sm-12 show'>
-            <img src={image} alt='poster'/>
-        </div> */}
