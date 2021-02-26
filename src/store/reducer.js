@@ -12,7 +12,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         shows: action.shows,
-        singleShow: null
+        singleShow: null,
+        searchedShows: null
       };
     case actionTypes.SET_SINGLE_SHOW:
       return {
