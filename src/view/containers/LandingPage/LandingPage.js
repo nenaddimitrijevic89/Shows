@@ -60,6 +60,7 @@ class LandingPage extends Component {
         <NavBar
           search={this.props.onFetchSearchedShows}
           searchedShows={this.props.searchedShows}
+          setSearchedShowId={this.props.onSetSearchedShowId}
         />
         <div className="container">{shows}</div>
       </div>
@@ -71,6 +72,7 @@ const mapStateToProps = (state) => {
   return {
     shows: state.shows,
     searchedShows: state.searchedShows,
+    searchedShowId: state.searchedShowId
   };
 };
 
@@ -78,6 +80,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onFetchInitShows: () => dispatch(actions.fetchInitShows()),
     onFetchSearchedShows: (query) => dispatch(actions.fetchSearchedShows(query)),
+    onSetSearchedShowId: (id) => dispatch(actions.fetchSearchedShowId(id))
   };
 };
 

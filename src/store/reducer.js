@@ -4,6 +4,7 @@ const initialState = {
   shows: null,
   singleShow: null,
   searchedShows: null,
+  searchedShowId: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -13,7 +14,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         shows: action.shows,
         singleShow: null,
-        searchedShows: null
+        searchedShows: null,
       };
     case actionTypes.SET_SINGLE_SHOW:
       return {
@@ -25,6 +26,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         searchedShows: action.shows,
+      };
+    case actionTypes.SET_SEARCHED_SHOW_ID:
+      return {
+        ...state,
+        searchedShowId: action.id,
       };
     default:
       return state;
