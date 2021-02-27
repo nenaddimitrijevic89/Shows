@@ -28,7 +28,7 @@ class LandingPage extends Component {
   current = () => {
     const indexOfLastShow = this.state.currentPage * this.state.showsPerPage;
     const indexOfFirstShow = indexOfLastShow - this.state.showsPerPage;
-    console.log(this.props.shows)
+    console.log(this.props.shows);
     const currentShows = this.props.shows
       .sort((a, b) => b.rating - a.rating)
       .slice(indexOfFirstShow, indexOfLastShow);
@@ -44,7 +44,10 @@ class LandingPage extends Component {
     if (!this.state.isLoading) {
       shows = (
         <>
-          <Shows data={this.state.currentShows} />
+          <Shows
+            data={this.state.currentShows}
+            setSearchedShowId={this.props.onSetSearchedShowId}
+          />
           <Pagination
             showsPerPage={this.state.showsPerPage}
             totalShows={this.props.shows.length}
@@ -72,7 +75,7 @@ const mapStateToProps = (state) => {
   return {
     shows: state.shows,
     searchedShows: state.searchedShows,
-    searchedShowId: state.searchedShowId
+    searchedShowId: state.searchedShowId,
   };
 };
 
@@ -80,7 +83,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onFetchInitShows: () => dispatch(actions.fetchInitShows()),
     onFetchSearchedShows: (query) => dispatch(actions.fetchSearchedShows(query)),
-    onSetSearchedShowId: (id) => dispatch(actions.fetchSearchedShowId(id))
+    onSetSearchedShowId: (id) => dispatch(actions.setSearchedShowId(id)),
   };
 };
 

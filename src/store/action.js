@@ -30,9 +30,9 @@ export const setSearchedShowId = (id) => {
   };
 };
 
-export const fetchSearchedShowId = (id) => {
-  return (dispatch) => dispatch(setSearchedShowId(id));
-};
+// export const fetchSearchedShowId = (id) => {
+//   return (dispatch) => dispatch(setSearchedShowId(id));
+// };
 
 export const fetchInitShows = () => {
   return (dispatch) => {
