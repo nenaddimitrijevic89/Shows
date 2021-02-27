@@ -13,8 +13,8 @@ const SingleShowInfo = ({ image, name, summary }) => {
         <h2 className="text-center">{name}</h2>
       </div>
     </div>
-    <div className='row'>
-    <div dangerouslySetInnerHTML={{ __html: summary }} />,
+    <div className='row summary'>
+    <div dangerouslySetInnerHTML={{ __html: summary }} />
     </div>
     </>
   );
