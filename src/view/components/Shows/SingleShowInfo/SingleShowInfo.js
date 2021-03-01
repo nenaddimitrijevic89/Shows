@@ -10,7 +10,7 @@ const SingleShowInfo = ({ image, name, summary }) => {
         <img src={image} alt="poster" />
       </div>
       <div className="col-lg-6 col-sm-12 info">
-        <h2 className="text-center">{name}</h2>
+        <h2 className="text-center name">{name}</h2>
       </div>
     </div>
     <div className='row summary'>
