@@ -8,6 +8,7 @@
 }
 .name{
     padding: 5px;
+    background-color: grey;
 }
 .summary{
     margin-top: 15px;
