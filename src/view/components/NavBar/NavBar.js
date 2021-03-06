@@ -2,7 +2,7 @@ import { Navbar, Form, FormControl } from "react-bootstrap";
 import ShowList from "./ShowList/ShowList";
 import "./NavBar.css";
 
-const NavBar = ({ search, searchedShows, setSearchedShowId }) => {
+const NavBar = ({ search, searchedShows, setShowId }) => {
   return (
     <>
       <Navbar bg="dark" expand="lg">
@@ -19,7 +19,7 @@ const NavBar = ({ search, searchedShows, setSearchedShowId }) => {
                 className="mr-sm-2"
                 onChange={(e) => search(e.target.value)}
               />
-              <ShowList searchedShows={searchedShows} setSearchedShowId={setSearchedShowId} />
+              <ShowList searchedShows={searchedShows} setShowId={setShowId} />
             </Form>
           </Navbar.Collapse>
         </div>

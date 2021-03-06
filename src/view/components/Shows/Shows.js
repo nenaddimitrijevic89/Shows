@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 import Show from "./Show/Show";
 import "./Shows.css";
 
-const Shows = ({ data, setSearchedShowId }) => {
+const Shows = ({ data, setShowId }) => {
   let shows = null;
   if (data) {
     shows = data.map((show) => (
-      <Link to={`singleshow/${show.id}`} key={show.id} onClick={()=> setSearchedShowId(show.id)}>
+      <Link to={`singleshow/${show.id}`} key={show.id} onClick={()=> setShowId(show.id)}>
         <Show image={show.mediumImage} />
       </Link>
     ));

@@ -7,7 +7,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import SingleShowInfo from "../../components/Shows/SingleShowInfo/SingleShowInfo";
 class SingleShow extends Component {
   componentDidMount() {
-      this.props.onFetchSingleShow(this.props.searchedShowId);
+      this.props.onFetchSingleShow(this.props.showId);
   }
   render() {
     let show = <Loader />;
@@ -25,7 +25,7 @@ class SingleShow extends Component {
         <NavBar
           search={this.props.onFetchSearchedShows}
           searchedShows={this.props.searchedShows}
-          setSearchedShowId={this.props.onSetSearchedShowId}
+          setShowId={this.props.onSetShowId}
         />
         <div className="container">{show}</div>;
       </div>
@@ -37,7 +37,7 @@ const mapStateToProps = (state) => {
   return {
     singleShow: state.singleShow,
     searchedShows: state.searchedShows,
-    searchedShowId: state.searchedShowId
+    showId: state.showId
   };
 };
 
@@ -45,7 +45,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onFetchSingleShow: (id) => dispatch(actions.fetchSingleShow(id)),
     onFetchSearchedShows: (query) => dispatch(actions.fetchSearchedShows(query)),
-    onSetSearchedShowId: (id) => dispatch(actions.setSearchedShowId(id))
+    onSetShowId: (id) => dispatch(actions.setShowId(id))
   };
 };
 
