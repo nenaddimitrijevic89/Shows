@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import "./ShowList.css";
 
-const ShowList = ({ searchedShows, setSearchedShowId }) => {
+const ShowList = ({ searchedShows, setShowId }) => {
   let list =
     searchedShows &&
     searchedShows.map((show) => (
-      <Link to={`/singleshow/${show.id}`} key={show.id} onClick={() => setSearchedShowId(show.id)}>
+      <Link to={`/singleshow/${show.id}`} key={show.id} onClick={() => setShowId(show.id)}>
         <li>{show.name}</li>
       </Link>
     ));

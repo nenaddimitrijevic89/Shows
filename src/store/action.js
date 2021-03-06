@@ -1,6 +1,7 @@
 import { showService } from "../services/showService";
 import * as actionTypes from "./actionTypes";
 import { Show } from "../entities/show";
+import { Season } from "../entities/season";
 
 export const setInitShows = (shows) => {
   return {
@@ -16,6 +17,13 @@ export const setSingleShow = (show) => {
   };
 };
 
+export const setSeasons = (seasons) => {
+  return {
+    type: actionTypes.SET_SEASONS,
+    seasons: seasons,
+  };
+};
+
 export const setSearchedShows = (shows) => {
   return {
     type: actionTypes.SET_SEARCHED_SHOWS,
@@ -23,9 +31,9 @@ export const setSearchedShows = (shows) => {
   };
 };
 
-export const setSearchedShowId = (id) => {
+export const setShowId = (id) => {
   return {
-    type: actionTypes.SET_SEARCHED_SHOW_ID,
+    type: actionTypes.SET_SHOW_ID,
     id: id,
   };
 };
@@ -49,6 +57,11 @@ export const fetchSingleShow = (id) => {
       console.log(response);
       const show = new Show(response.data);
       dispatch(setSingleShow(show));
+    });
+    showService.getSeasons(id).then((response) => {
+      console.log(response.data);
+      const seasons = response.data.map((season) => new Season(season));
+      dispatch(setSeasons(seasons));
     });
   };
 };

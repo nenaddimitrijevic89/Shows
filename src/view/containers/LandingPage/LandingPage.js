@@ -46,7 +46,7 @@ class LandingPage extends Component {
         <>
           <Shows
             data={this.state.currentShows}
-            setSearchedShowId={this.props.onSetSearchedShowId}
+            setShowId={this.props.onSetShowId}
           />
           <Pagination
             showsPerPage={this.state.showsPerPage}
@@ -63,7 +63,7 @@ class LandingPage extends Component {
         <NavBar
           search={this.props.onFetchSearchedShows}
           searchedShows={this.props.searchedShows}
-          setSearchedShowId={this.props.onSetSearchedShowId}
+          setShowId={this.props.onSetShowId}
         />
         <div className="container">{shows}</div>
       </div>
@@ -83,7 +83,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onFetchInitShows: () => dispatch(actions.fetchInitShows()),
     onFetchSearchedShows: (query) => dispatch(actions.fetchSearchedShows(query)),
-    onSetSearchedShowId: (id) => dispatch(actions.setSearchedShowId(id)),
+    onSetShowId: (id) => dispatch(actions.setShowId(id)),
   };
 };
 

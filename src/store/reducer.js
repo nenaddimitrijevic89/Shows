@@ -3,8 +3,9 @@ import * as actionTypes from "./actionTypes";
 const initialState = {
   shows: null,
   singleShow: null,
+  seasons: null,
   searchedShows: null,
-  searchedShowId: null,
+  showId: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -22,15 +23,20 @@ const reducer = (state = initialState, action) => {
         singleShow: action.show,
         searchedShows: null,
       };
+    case actionTypes.SET_SEASONS:
+      return {
+        ...state,
+        seasons: action.seasons,
+      };
     case actionTypes.SET_SEARCHED_SHOWS:
       return {
         ...state,
         searchedShows: action.shows,
       };
-    case actionTypes.SET_SEARCHED_SHOW_ID:
+    case actionTypes.SET_SHOW_ID:
       return {
         ...state,
-        searchedShowId: action.id,
+        showId: action.id,
       };
     default:
       return state;

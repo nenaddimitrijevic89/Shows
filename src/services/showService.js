@@ -12,6 +12,10 @@ class ShowService {
   getSearchedShows(query) {
     return baseURL.get(`search/shows?q=${query}`);
   }
+
+  getSeasons(id) {
+    return baseURL.get(`http://api.tvmaze.com/shows/${id}/seasons`);
+  }
 }
 
 export const showService = new ShowService();
