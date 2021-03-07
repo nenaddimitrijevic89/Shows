@@ -7,7 +7,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import SingleShowInfo from "../../components/Shows/SingleShowInfo/SingleShowInfo";
 class SingleShow extends Component {
   componentDidMount() {
-      this.props.onFetchSingleShow(this.props.showId);
+    this.props.onFetchSingleShow(this.props.showId);
   }
   render() {
     let show = <Loader />;
@@ -17,6 +17,7 @@ class SingleShow extends Component {
           image={this.props.singleShow.largeImage}
           name={this.props.singleShow.name}
           summary={this.props.singleShow.summary}
+          seasons={this.props.seasons}
         />
       );
     }
@@ -37,15 +38,17 @@ const mapStateToProps = (state) => {
   return {
     singleShow: state.singleShow,
     searchedShows: state.searchedShows,
-    showId: state.showId
+    showId: state.showId,
+    seasons: state.seasons,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onFetchSingleShow: (id) => dispatch(actions.fetchSingleShow(id)),
-    onFetchSearchedShows: (query) => dispatch(actions.fetchSearchedShows(query)),
-    onSetShowId: (id) => dispatch(actions.setShowId(id))
+    onFetchSearchedShows: (query) =>
+      dispatch(actions.fetchSearchedShows(query)),
+    onSetShowId: (id) => dispatch(actions.setShowId(id)),
   };
 };
 
