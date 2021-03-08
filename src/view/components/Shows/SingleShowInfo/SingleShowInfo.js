@@ -12,7 +12,7 @@ const SingleShowInfo = ({ image, name, summary, seasons }) => {
         <div className="col-lg-6 col-sm-12 info">
           <h2 className="text-center name">{name}</h2>
           <ul>
-            <p>Seasons ({seasons.length})</p>
+            <h5>Seasons ({seasons && seasons.length})</h5>
             {seasons && seasons.map((season) => <li>{season.premiereDate}</li>)}
           </ul>
         </div>
