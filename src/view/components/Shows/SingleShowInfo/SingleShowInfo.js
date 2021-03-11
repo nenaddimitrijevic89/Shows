@@ -13,7 +13,7 @@ const SingleShowInfo = ({ image, name, summary, seasons }) => {
           <h2 className="text-center name">{name}</h2>
           <ul>
             <h5>Seasons ({seasons && seasons.length})</h5>
-            {seasons && seasons.map((season) => <li>{`${season.premiereDate} - ${season.endDate}`}</li>)}
+            {seasons && seasons.slice(0, 3).map((season) => <li key={season.id}>{`${season.premiereDate} - ${season.endDate}`}</li>)}
           </ul>
         </div>
       </div>
