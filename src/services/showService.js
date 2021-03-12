@@ -14,7 +14,11 @@ class ShowService {
   }
 
   getSeasons(id) {
-    return baseURL.get(`http://api.tvmaze.com/shows/${id}/seasons`);
+    return baseURL.get(`shows/${id}/seasons`);
+  }
+
+  getCast(id) {
+    return baseURL.get(`shows/${id}/cast`)
   }
 }
 
