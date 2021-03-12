@@ -59,6 +59,7 @@ export const fetchSingleShow = (id) => {
       const seasons = response.data.map((season) => new Season(season));
       dispatch(setSeasons(seasons));
     });
+    showService.getCast(id).then(response => console.log(response))
   };
 };
 
