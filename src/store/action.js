@@ -2,6 +2,7 @@ import { showService } from "../services/showService";
 import * as actionTypes from "./actionTypes";
 import { Show } from "../entities/show";
 import { Season } from "../entities/season";
+import { Cast } from "../entities/cast";
 
 export const setInitShows = (shows) => {
   return {
@@ -59,7 +60,10 @@ export const fetchSingleShow = (id) => {
       const seasons = response.data.map((season) => new Season(season));
       dispatch(setSeasons(seasons));
     });
-    showService.getCast(id).then(response => console.log(response))
+    showService.getCast(id).then((response) => {
+      const cast = response.data.map((cast) => new Cast(cast));
+      console.log(cast)
+    });
   };
 };
 
