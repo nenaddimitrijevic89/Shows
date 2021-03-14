@@ -25,6 +25,13 @@ export const setSeasons = (seasons) => {
   };
 };
 
+export const setCast = (cast) => {
+  return {
+    type: actionTypes.SET_CAST,
+    cast: cast,
+  };
+};
+
 export const setSearchedShows = (shows) => {
   return {
     type: actionTypes.SET_SEARCHED_SHOWS,
@@ -62,7 +69,8 @@ export const fetchSingleShow = (id) => {
     });
     showService.getCast(id).then((response) => {
       const cast = response.data.map((cast) => new Cast(cast));
-      console.log(cast)
+      console.log(cast);
+      dispatch(setCast(cast))
     });
   };
 };
