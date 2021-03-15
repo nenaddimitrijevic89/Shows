@@ -68,8 +68,8 @@ export const fetchSingleShow = (id) => {
       dispatch(setSeasons(seasons));
     });
     showService.getCast(id).then((response) => {
+      console.log(response.data);
       const cast = response.data.map((cast) => new Cast(cast));
-      console.log(cast);
       dispatch(setCast(cast))
     });
   };

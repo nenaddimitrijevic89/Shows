@@ -17,6 +17,9 @@ const reducer = (state = initialState, action) => {
         shows: action.shows,
         singleShow: null,
         searchedShows: null,
+        seasons: null,
+        cast: null,
+        showId: null
       };
     case actionTypes.SET_SINGLE_SHOW:
       return {
