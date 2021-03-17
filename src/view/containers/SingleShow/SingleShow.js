@@ -10,6 +10,7 @@ class SingleShow extends Component {
     this.props.onFetchSingleShow(this.props.showId);
   }
   render() {
+    console.log(this.props.cast)
     let show = <Loader />;
     if (this.props.singleShow) {
       show = (
@@ -40,6 +41,7 @@ const mapStateToProps = (state) => {
     searchedShows: state.searchedShows,
     showId: state.showId,
     seasons: state.seasons,
+    cast: state.cast,
   };
 };
 
