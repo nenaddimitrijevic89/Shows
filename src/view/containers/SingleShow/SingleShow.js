@@ -10,7 +10,6 @@ class SingleShow extends Component {
     this.props.onFetchSingleShow(this.props.showId);
   }
   render() {
-    console.log(this.props.cast)
     let show = <Loader />;
     if (this.props.singleShow) {
       show = (
