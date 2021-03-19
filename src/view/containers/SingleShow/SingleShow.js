@@ -18,6 +18,7 @@ class SingleShow extends Component {
           name={this.props.singleShow.name}
           summary={this.props.singleShow.summary}
           seasons={this.props.seasons}
+          cast={this.props.cast}
         />
       );
     }
