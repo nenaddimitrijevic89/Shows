@@ -16,6 +16,7 @@ const SingleShowInfo = ({ image, name, summary, seasons, cast }) => {
             {seasons && seasons.slice(0, 3).map((season) => <li key={season.id}>{`${season.premiereDate} - ${season.endDate}`}</li>)}
             <h5>Cast</h5>
             {cast && cast.slice(0, 5).map(c => <li key={c.id}>{c.name}</li>)}
+            <h5>Crew</h5>
           </ul>
         </div>
       </div>
