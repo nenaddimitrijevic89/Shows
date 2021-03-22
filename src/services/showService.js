@@ -18,7 +18,11 @@ class ShowService {
   }
 
   getCast(id) {
-    return baseURL.get(`shows/${id}/cast`)
+    return baseURL.get(`shows/${id}/cast`);
+  }
+
+  getCrew(id) {
+    return baseURL.get(`shows/${id}/crew`);
   }
 }
 

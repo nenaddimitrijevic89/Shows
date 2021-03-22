@@ -19,7 +19,7 @@ const reducer = (state = initialState, action) => {
         searchedShows: null,
         seasons: null,
         cast: null,
-        showId: null
+        showId: null,
       };
     case actionTypes.SET_SINGLE_SHOW:
       return {
@@ -36,6 +36,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         cast: action.cast,
+      };
+    case actionTypes.SET_CREW:
+      return {
+        ...state,
+        crew: action.crew,
       };
     case actionTypes.SET_SEARCHED_SHOWS:
       return {
