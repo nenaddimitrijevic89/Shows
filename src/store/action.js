@@ -32,6 +32,13 @@ export const setCast = (cast) => {
   };
 };
 
+export const setCrew = (crew) => {
+  return {
+    type: actionTypes.SET_CREW,
+    crew: crew,
+  };
+};
+
 export const setSearchedShows = (shows) => {
   return {
     type: actionTypes.SET_SEARCHED_SHOWS,
@@ -70,8 +77,9 @@ export const fetchSingleShow = (id) => {
     showService.getCast(id).then((response) => {
       console.log(response.data);
       const cast = response.data.map((cast) => new Cast(cast));
-      dispatch(setCast(cast))
+      dispatch(setCast(cast));
     });
+    showService.getCrew(id).then(response => console.log(response));
   };
 };
 
