@@ -3,6 +3,7 @@ import * as actionTypes from "./actionTypes";
 import { Show } from "../entities/show";
 import { Season } from "../entities/season";
 import { Cast } from "../entities/cast";
+import { Crew } from "../entities/crew";
 
 export const setInitShows = (shows) => {
   return {
@@ -79,7 +80,11 @@ export const fetchSingleShow = (id) => {
       const cast = response.data.map((cast) => new Cast(cast));
       dispatch(setCast(cast));
     });
-    showService.getCrew(id).then(response => console.log(response));
+    showService.getCrew(id).then(response => {
+      console.log(response.data);
+      const crew = response.data.map(crew => new Crew(crew));
+      dispatch(setCrew(crew));
+    });
   };
 };
 
