@@ -19,6 +19,7 @@ class SingleShow extends Component {
           summary={this.props.singleShow.summary}
           seasons={this.props.seasons}
           cast={this.props.cast}
+          crew={this.props.crew}
         />
       );
     }
@@ -42,6 +43,7 @@ const mapStateToProps = (state) => {
     showId: state.showId,
     seasons: state.seasons,
     cast: state.cast,
+    crew: state.crew,
   };
 };
 
