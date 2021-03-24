@@ -5,6 +5,7 @@ const initialState = {
   singleShow: null,
   seasons: null,
   cast: null,
+  crew: null,
   searchedShows: null,
   showId: null,
 };

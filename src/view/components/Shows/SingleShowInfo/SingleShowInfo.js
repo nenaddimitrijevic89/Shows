@@ -2,7 +2,7 @@ import React from "react";
 
 import "./SingleShowInfo.css";
 
-const SingleShowInfo = ({ image, name, summary, seasons, cast }) => {
+const SingleShowInfo = ({ image, name, summary, seasons, cast, crew }) => {
   return (
     <>
       <div className="row">
@@ -17,6 +17,7 @@ const SingleShowInfo = ({ image, name, summary, seasons, cast }) => {
             <h5>Cast</h5>
             {cast && cast.slice(0, 5).map(c => <li key={c.id}>{c.name}</li>)}
             <h5>Crew</h5>
+            {crew && crew.slice(0, 5).map(c => <li key={c.id}>{`${c.type} - ${c.name}`}</li>)}
           </ul>
         </div>
       </div>
