@@ -66,25 +66,22 @@ export const fetchInitShows = () => {
 export const fetchSingleShow = (id) => {
   return (dispatch) => {
     showService.getSingleShow(id).then((response) => {
-      console.log(response);
       const show = new Show(response.data);
       dispatch(setSingleShow(show));
     });
     showService.getSeasons(id).then((response) => {
-      console.log(response.data);
       const seasons = response.data.map((season) => new Season(season));
       dispatch(setSeasons(seasons));
     });
     showService.getCast(id).then((response) => {
-      console.log(response.data);
       const cast = response.data.map((cast) => new Cast(cast));
       dispatch(setCast(cast));
     });
     showService.getCrew(id).then(response => {
-      console.log(response.data);
       const crew = response.data.map(crew => new Crew(crew));
       dispatch(setCrew(crew));
     });
+    showService.getShowImages(id).then(response => console.log(response));
   };
 };
 
