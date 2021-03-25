@@ -24,6 +24,10 @@ class ShowService {
   getCrew(id) {
     return baseURL.get(`shows/${id}/crew`);
   }
+
+  getShowImages(id) {
+    return baseURL.get(`shows/${id}/images`);
+  }
 }
 
 export const showService = new ShowService();
