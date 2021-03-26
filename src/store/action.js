@@ -4,6 +4,7 @@ import { Show } from "../entities/show";
 import { Season } from "../entities/season";
 import { Cast } from "../entities/cast";
 import { Crew } from "../entities/crew";
+import { Image } from "../entities/image";
 
 export const setInitShows = (shows) => {
   return {
@@ -39,6 +40,13 @@ export const setCrew = (crew) => {
     crew: crew,
   };
 };
+
+export const setImages = (image) => {
+  return {
+    type: actionTypes.SET_IMAGES,
+    images: image
+  }
+}
 
 export const setSearchedShows = (shows) => {
   return {
@@ -81,7 +89,11 @@ export const fetchSingleShow = (id) => {
       const crew = response.data.map(crew => new Crew(crew));
       dispatch(setCrew(crew));
     });
-    showService.getShowImages(id).then(response => console.log(response));
+    showService.getShowImages(id).then(response => {
+      console.log(response.data);
+      const images = response.data.map(image => new Image(image));
+      dispatch(setImages(images));
+    });
   };
 };
 
