@@ -43,6 +43,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         crew: action.crew,
       };
+    case actionTypes.SET_IMAGES:
+      return {
+        ...state,
+        images: action.images,
+      };
     case actionTypes.SET_SEARCHED_SHOWS:
       return {
         ...state,
