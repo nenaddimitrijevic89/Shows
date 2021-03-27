@@ -17,6 +17,12 @@
 .info h5{
     margin-top: 15px;
 }
+.images{
+    display: flex;
+}
+.images img{
+    width: 150px;
+}
 .summary{
     margin-top: 15px;
     font-size: larger;

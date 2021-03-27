@@ -1,8 +1,9 @@
 import React from "react";
+import Carousel from "../../Carousel/Carousel";
 
 import "./SingleShowInfo.css";
 
-const SingleShowInfo = ({ image, name, summary, seasons, cast, crew }) => {
+const SingleShowInfo = ({ image, name, summary, seasons, cast, crew, images }) => {
   return (
     <>
       <div className="row">
@@ -18,6 +19,10 @@ const SingleShowInfo = ({ image, name, summary, seasons, cast, crew }) => {
             {cast && cast.slice(0, 5).map(c => <li key={c.id}>{c.name}</li>)}
             <h5>Crew</h5>
             {crew && crew.slice(0, 5).map(c => <li key={c.id}>{`${c.type} - ${c.name}`}</li>)}
+            <h5>Images</h5>
+            <div className="images">
+              <Carousel images={images}/>
+            </div>
           </ul>
         </div>
       </div>
