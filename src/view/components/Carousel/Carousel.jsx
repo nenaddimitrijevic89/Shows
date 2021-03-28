@@ -9,8 +9,8 @@ const Carousel = ({ images }) => {
     >
       <div class="carousel-inner">
         {images &&
-          images.map((img, i) => (
-            <div class={`carousel-item ${i === 0 && `active`}`} key={img.id}>
+          images.map(img => (
+            <div class="carousel-item active" key={img.id}>
               <img
                 class="d-block w-100"
                 src={img.original}
