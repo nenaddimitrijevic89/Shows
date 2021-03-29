@@ -21,7 +21,7 @@
     display: flex;
 }
 .images img{
-    width: 150px;
+    width: 100px;
 }
 .summary{
     margin-top: 15px;
