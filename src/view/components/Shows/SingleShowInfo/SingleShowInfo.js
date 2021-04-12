@@ -21,7 +21,7 @@ const SingleShowInfo = ({ image, name, summary, seasons, cast, crew, images }) =
             {crew && crew.slice(0, 5).map(c => <li key={c.id}>{`${c.type} - ${c.name}`}</li>)}
             <h5>Images</h5>
             <div className="images">
-              
+              {images && images.slice(0, 3).map(img => <img src={img.original}/>)}
             </div>
           </ul>
         </div>
