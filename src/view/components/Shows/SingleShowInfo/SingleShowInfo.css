@@ -10,6 +10,10 @@
     padding-right: 0px;
     border-radius: 5px;
 }
+.info>ul{
+    padding-left: 20px;
+    padding-right: 20px;
+}
 .name{
     padding: 5px;
     background-color: grey;
@@ -19,10 +23,13 @@
 }
 .images{
     display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 .images img{
     width: 100px;
     padding: 5px;
+    object-fit: cover;
 }
 .summary{
     margin-top: 15px;
