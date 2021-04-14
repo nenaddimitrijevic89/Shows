@@ -14,6 +14,7 @@ class SingleShow extends Component {
     if (this.props.singleShow) {
       show = (
         <SingleShowInfo
+          id={this.props.showId}
           image={this.props.singleShow.largeImage}
           name={this.props.singleShow.name}
           summary={this.props.singleShow.summary}
