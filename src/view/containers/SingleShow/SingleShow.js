@@ -7,8 +7,16 @@ import NavBar from "../../components/NavBar/NavBar";
 import SingleShowInfo from "../../components/Shows/SingleShowInfo/SingleShowInfo";
 class SingleShow extends Component {
   componentDidMount() {
+    console.log('did mount')
     this.props.onFetchSingleShow(this.props.showId);
   }
+  componentDidUpdate(prevProps, prevState) {
+    if(prevProps.showId !== this.props.showId){
+      console.log(this.props.showId)
+      console.log(prevProps.showId)
+      this.props.onFetchSingleShow(this.props.showId);
+    }
+}
   render() {
     let show = <Loader />;
     if (this.props.singleShow) {
