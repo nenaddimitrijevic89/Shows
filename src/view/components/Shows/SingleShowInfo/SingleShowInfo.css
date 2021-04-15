@@ -20,6 +20,7 @@
 }
 .info h5{
     margin-top: 15px;
+    cursor: pointer;
 }
 .images{
     display: flex;
