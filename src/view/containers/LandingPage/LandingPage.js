@@ -28,7 +28,6 @@ class LandingPage extends Component {
   current = () => {
     const indexOfLastShow = this.state.currentPage * this.state.showsPerPage;
     const indexOfFirstShow = indexOfLastShow - this.state.showsPerPage;
-    console.log(this.props.shows);
     const currentShows = this.props.shows
       .sort((a, b) => b.rating - a.rating)
       .slice(indexOfFirstShow, indexOfLastShow);
