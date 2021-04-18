@@ -10,7 +10,6 @@ class SingleShow extends Component {
     this.props.onFetchSingleShow(this.props.showId);
   }
   componentDidUpdate(prevProps, prevState) {
-    console.log(this.props.match.params.id)
     if (prevProps.showId !== this.props.showId) {
       this.props.onFetchSingleShow(this.props.showId);
     }
