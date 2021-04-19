@@ -90,7 +90,6 @@ export const fetchSingleShow = (id) => {
       dispatch(setCrew(crew));
     });
     showService.getShowImages(id).then(response => {
-      console.log(response.data);
       const images = response.data.map(image => new Image(image));
       dispatch(setImages(images));
     });
