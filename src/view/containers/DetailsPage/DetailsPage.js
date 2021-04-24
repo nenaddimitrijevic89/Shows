@@ -21,13 +21,13 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onFetchSingleShow: (id) => dispatch(actions.fetchSingleShow(id)),
-    onFetchSearchedShows: (query) =>
-      dispatch(actions.fetchSearchedShows(query)),
-    onSetShowId: (id) => dispatch(actions.setShowId(id)),
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     onFetchSingleShow: (id) => dispatch(actions.fetchSingleShow(id)),
+//     onFetchSearchedShows: (query) =>
+//       dispatch(actions.fetchSearchedShows(query)),
+//     onSetShowId: (id) => dispatch(actions.setShowId(id)),
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(DetailsPage);
+export default connect(mapStateToProps)(DetailsPage);
