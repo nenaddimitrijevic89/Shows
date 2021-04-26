@@ -2,12 +2,11 @@ import React from "react";
 import { Component } from "react";
 import { connect } from "react-redux";
 
-class DetailsPage extends Component {
+const DetailsPage = () => {
   
-  render() {
-    console.log("aaaaa")
-    return <>Details</>;
-  }
+  return(
+    <>Details</>
+  )
 }
 
 export default DetailsPage;
