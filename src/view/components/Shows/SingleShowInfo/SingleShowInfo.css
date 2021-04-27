@@ -15,12 +15,14 @@
     padding-right: 20px;
 }
 .name{
-    padding: 5px;
+    padding: 15px;
     background-color: orange;
+    font-weight: bold;
 }
 .info h5{
     margin-top: 15px;
     cursor: pointer;
+    font-weight: bold;
 }
 .images{
     display: flex;
