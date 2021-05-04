@@ -16,7 +16,8 @@
 }
 .name{
     padding: 15px;
-    background-color: orange;
+    background-color: #343a40;
+    color: white;
     font-weight: bold;
 }
 .info h5{
