@@ -1,48 +1,57 @@
-.poster{
-    margin-top: 30px;
-    padding-left: 0px;
-    padding-right: 0px;
+.poster {
+  margin-top: 30px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
-.info{
-    margin-top: 30px;
-    background-color: white;
-    padding-left: 0px;
-    padding-right: 0px;
-    border-radius: 5px;
+.info {
+  margin-top: 30px;
+  background-color: white;
+  padding-left: 0px;
+  padding-right: 0px;
+  border-radius: 5px;
 }
-.info>ul{
-    padding-left: 20px;
-    padding-right: 20px;
+.info > ul {
+  padding-left: 20px;
+  padding-right: 20px;
 }
-.name{
-    padding: 15px;
-    background-color: #343a40;
-    color: white;
-    font-weight: bold;
+.name {
+  padding: 15px;
+  background-color: #343a40;
+  color: white;
+  font-weight: bold;
 }
-.info h5{
-    margin-top: 15px;
-    cursor: pointer;
-    font-weight: bold;
+.info h5 {
+  margin-top: 15px;
+  cursor: pointer;
+  font-weight: bold;
 }
-.images{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+.images {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
-.images img{
-    width: 100px;
-    padding: 5px;
-    object-fit: cover;
+.images img {
+  width: 100px;
+  padding: 5px;
+  object-fit: cover;
 }
-.summary{
-    margin-top: 15px;
-    font-size: larger;
-    background-color: white;
-    border-radius: 5px;
-    padding: 15px;
+.summary {
+  margin-top: 15px;
+  font-size: larger;
+  background-color: white;
+  border-radius: 5px;
+  padding: 15px;
 }
-li{
-    list-style: none;
-    font-style: italic;
+li {
+  list-style: none;
+  font-style: italic;
+}
+@media only screen and (min-width: 360px) {
+  .poster, .info {
+    margin: 0 5px;
+    margin-bottom: 0px;
+  }
+  .info {
+      margin-top: 0px;
+  }
 }
