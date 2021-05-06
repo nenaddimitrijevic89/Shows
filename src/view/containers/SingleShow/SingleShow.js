@@ -37,7 +37,7 @@ class SingleShow extends Component {
           searchedShows={this.props.searchedShows}
           setShowId={this.props.onSetShowId}
         />
-        <div className="container">{show}</div>;
+        <div className="container">{show}</div>
       </div>
     );
   }
